@@ -2,397 +2,129 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>🌸 Ngọc Lê 🌸</title>
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif}
 body{
-
-height:100vh;
-overflow:hidden;
-
-background:linear-gradient(135deg,#ffd6e8,#ffcce3,#fff4f9);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-color:white;
-
+height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:flex-start;
+background:linear-gradient(160deg,#ffd5e5,#ffe9f2,#fff);
+position:relative;color:#fff;
 }
-
 body::before{
-
-content:"";
-position:absolute;
-inset:0;
-
-background:
-radial-gradient(circle at top,#ffffff55,transparent 60%);
-
-}
-
-.lock{
-
-position:relative;
-z-index:5;
-text-align:center;
-width:100%;
-
-}
-
-.time{
-
-font-size:70px;
-font-weight:300;
-text-shadow:0 5px 15px rgba(0,0,0,.15);
-
-}
-
-.date{
-
-margin-top:8px;
-font-size:20px;
-
-}
-
-.card{
-
-margin:30px auto;
-
-width:340px;
-
-padding:28px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,.22);
-
-backdrop-filter:blur(18px);
-
-box-shadow:0 10px 40px rgba(0,0,0,.18);
-
-}
-
-.avatar{
-
-width:180px;
-height:180px;
-
-margin:18px auto;
-
-display:block;
-
-object-fit:cover;
-
-border-radius:50%;
-
-border:5px solid rgba(255,255,255,.8);
-
-box-shadow:0 8px 30px rgba(0,0,0,.25);
-
-animation:float 3s ease-in-out infinite;
-
-}
-
-h2{
-
-margin-top:10px;
-font-size:34px;
-
-}
-
-p{
-
-margin-top:18px;
-
-font-size:18px;
-
-line-height:1.7;
-
-}
-
-button{
-
-margin-top:25px;
-
-padding:14px 35px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:18px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-background:white;
-
-color:#ff4f91;
-
-transition:.3s;
-
-}
-
-button:hover{
-
+content:"";position:absolute;inset:0;
+background:url("ngocle.png") center/cover no-repeat;
+filter:blur(18px) brightness(.9);
 transform:scale(1.08);
-
+z-index:-2;
 }
-
-#msg{
-
-margin-top:18px;
-
-font-size:20px;
-
-min-height:55px;
-
+body::after{
+content:"";position:absolute;inset:0;
+background:rgba(255,220,235,.45);
+z-index:-1;
 }
-
-.float{
-
-position:absolute;
-
-pointer-events:none;
-
-animation:fly linear forwards;
-
+#musicBtn{
+position:fixed;top:20px;right:20px;width:48px;height:48px;border:none;
+border-radius:50%;font-size:22px;background:rgba(255,255,255,.6);
+backdrop-filter:blur(12px);cursor:pointer;
 }
-
+.lock{width:100%;text-align:center;padding-top:55px}
+.time{font-size:72px;font-weight:300;text-shadow:0 4px 12px rgba(0,0,0,.25)}
+.date{font-size:22px;margin-top:5px}
+.card{
+margin:35px auto;width:340px;background:rgba(255,255,255,.2);
+backdrop-filter:blur(18px);
+border-radius:30px;padding:28px;box-shadow:0 12px 35px rgba(0,0,0,.18)
+}
+.avatar{
+width:180px;height:180px;border-radius:50%;object-fit:cover;
+border:5px solid #fff;display:block;margin:0 auto 20px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+animation:float 3s ease-in-out infinite;
+}
+h2{font-size:34px}
+p{margin-top:16px;line-height:1.7;font-size:18px}
+button.action{
+margin-top:24px;padding:14px 28px;border:none;border-radius:50px;
+font-size:18px;font-weight:bold;color:#ff4c91;background:#fff;cursor:pointer
+}
+#msg{margin-top:18px;min-height:50px;font-size:20px}
+.item{position:absolute;pointer-events:none;animation:fly linear forwards}
+@keyframes float{50%{transform:translateY(-8px)}}
 @keyframes fly{
-
-from{
-
-transform:translateY(0) scale(.5);
-
-opacity:1;
-
+from{transform:translateY(0) scale(.6);opacity:1}
+to{transform:translateY(-120vh) rotate(360deg) scale(2);opacity:0}
 }
-
-to{
-
-transform:translateY(-120vh) rotate(360deg) scale(2);
-
-opacity:0;
-
-}
-
-}
-
-@keyframes float{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-10px);
-
-}
-
-}
-
 </style>
-
 </head>
-
 <body>
 
+<audio id="bgm" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn">🎵</button>
+
 <div class="lock">
-
 <div class="time" id="time"></div>
-
 <div class="date" id="date"></div>
 
 <div class="card">
-
 <img src="ngocle.png" class="avatar">
-
 <h2>🌸 Ngọc Lê 🌸</h2>
+<p>Chúc Ngọc Lê luôn thật nhiều niềm vui,<br>mỗi ngày đều mỉm cười thật tươi ✨</p>
 
-<p>
-
-Chúc Ngọc Lê luôn vui vẻ 🌷
-
-Mỗi ngày đều có thật nhiều tiếng cười ✨
-
-</p>
-
-<button onclick="showWish()">
-
-🌸 Chạm thử nè
-
-</button>
+<button class="action" onclick="wish()">🌸 Chạm thử nè</button>
 
 <div id="msg"></div>
-
 </div>
-
 </div>
 
 <script>
-
-function updateClock(){
-
-const now=new Date();
-
-document.getElementById("time").innerHTML=
-
-String(now.getHours()).padStart(2,"0")+":"+
-
-String(now.getMinutes()).padStart(2,"0");
-
-const days=[
-
-"Chủ nhật",
-
-"Thứ Hai",
-
-"Thứ Ba",
-
-"Thứ Tư",
-
-"Thứ Năm",
-
-"Thứ Sáu",
-
-"Thứ Bảy"
-
-];
-
-document.getElementById("date").innerHTML=
-
-days[now.getDay()]+" • "+
-
-now.getDate()+"/"+(now.getMonth()+1)+"/"+now.getFullYear();
-
+function clock(){
+const n=new Date();
+time.innerHTML=String(n.getHours()).padStart(2,'0')+":"+String(n.getMinutes()).padStart(2,'0');
+const d=["Chủ nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"];
+date.innerHTML=d[n.getDay()]+" • "+n.getDate()+"/"+(n.getMonth()+1)+"/"+n.getFullYear();
 }
+setInterval(clock,1000);clock();
 
-setInterval(updateClock,1000);
-
-updateClock();
-
-const wishes=[
-
-"🌸 Chúc Ngọc Lê luôn mỉm cười.",
-
-"🌷 Chúc hôm nay thật nhiều niềm vui.",
-
-"✨ Mong mọi điều tốt đẹp sẽ đến.",
-
-"😊 Hãy luôn giữ nụ cười nhé.",
-
-"🩷 Chúc một ngày thật nhẹ nhàng.",
-
-"🌼 Smileeeee 😄"
-
+const txt=[
+"🌷 Chúc một ngày thật đẹp.",
+"😊 Luôn giữ nụ cười nhé.",
+"🌸 Ngọc Lê rất dễ thương.",
+"✨ Mọi điều tốt đẹp sẽ đến.",
+"💖 Smileeeee 😄"
 ];
 
-function showWish(){
-
-document.getElementById("msg").innerHTML=
-
-wishes[Math.floor(Math.random()*wishes.length)];
-
-for(let i=0;i<80;i++){
-
+function spawn(x,y,c=25){
+for(let i=0;i<c;i++){
 let e=document.createElement("div");
-
-e.className="float";
-
-e.innerHTML=["🌸","🩷","✨","💖","🌷"][Math.floor(Math.random()*5)];
-
-e.style.left=Math.random()*100+"vw";
-
-e.style.top="100vh";
-
-e.style.fontSize=(18+Math.random()*25)+"px";
-
+e.className="item";
+e.innerHTML=["🌸","✨","🩷","💖"][Math.floor(Math.random()*4)];
+e.style.left=(x??Math.random()*innerWidth)+(Math.random()-0.5)*120+"px";
+e.style.top=(y??innerHeight)+(Math.random()-0.5)*40+"px";
+e.style.fontSize=(18+Math.random()*18)+"px";
 e.style.animationDuration=(3+Math.random()*3)+"s";
-
 document.body.appendChild(e);
-
-setTimeout(()=>{
-
-e.remove();
-
-},6000);
-
+setTimeout(()=>e.remove(),6000);
 }
-
 }
-
-setInterval(()=>{
-
-let e=document.createElement("div");
-
-e.className="float";
-
-e.innerHTML=["🌸","✨","🩷"][Math.floor(Math.random()*3)];
-
-e.style.left=Math.random()*100+"vw";
-
-e.style.top="100vh";
-
-e.style.fontSize=(16+Math.random()*18)+"px";
-
-e.style.animationDuration="7s";
-
-document.body.appendChild(e);
-
-setTimeout(()=>{
-
-e.remove();
-
-},7000);
-
-},500);
-
-document.addEventListener("click",(ev)=>{
-
-for(let i=0;i<18;i++){
-
-let e=document.createElement("div");
-
-e.className="float";
-
-e.innerHTML="🌸";
-
-e.style.left=(ev.clientX+(Math.random()-0.5)*100)+"px";
-
-e.style.top=(ev.clientY+(Math.random()-0.5)*100)+"px";
-
-e.style.fontSize=(16+Math.random()*20)+"px";
-
-e.style.animationDuration="3s";
-
-document.body.appendChild(e);
-
-setTimeout(()=>{
-
-e.remove();
-
-},3000);
-
+function wish(){
+msg.innerHTML=txt[Math.floor(Math.random()*txt.length)];
+spawn();
 }
+setInterval(()=>spawn(null,null,3),700);
 
-});
+document.addEventListener("click",e=>{
+spawn(e.clientX,e.clientY,12);
+bgm.play().catch(()=>{});
+},{once:true});
 
+musicBtn.onclick=()=>{
+if(bgm.paused){bgm.play();musicBtn.textContent="⏸️";}
+else{bgm.pause();musicBtn.textContent="🎵";}
+}
 </script>
-
 </body>
 </html>
