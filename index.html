@@ -6,107 +6,202 @@
 <title>🌸 Ngọc Lê 🌸</title>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;
 }
 
 body{
-    overflow:hidden;
-    height:100vh;
-    background:linear-gradient(160deg,#ffd6e8,#ffc2dc,#ffeef6);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
+
+height:100vh;
+overflow:hidden;
+
+background:linear-gradient(135deg,#ffd6e8,#ffcce3,#fff4f9);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:white;
+
 }
 
-.bg{
-    position:fixed;
-    inset:0;
-    background:radial-gradient(circle at top,#ffffff40,transparent 65%);
+body::before{
+
+content:"";
+position:absolute;
+inset:0;
+
+background:
+radial-gradient(circle at top,#ffffff55,transparent 60%);
+
 }
 
 .lock{
-    text-align:center;
-    z-index:10;
-    width:100%;
-    padding:20px;
+
+position:relative;
+z-index:5;
+text-align:center;
+width:100%;
+
 }
 
 .time{
-    font-size:72px;
-    font-weight:300;
-    text-shadow:0 3px 10px rgba(0,0,0,.15);
+
+font-size:70px;
+font-weight:300;
+text-shadow:0 5px 15px rgba(0,0,0,.15);
+
 }
 
 .date{
-    font-size:20px;
-    margin-top:6px;
-    margin-bottom:30px;
+
+margin-top:8px;
+font-size:20px;
+
 }
 
 .card{
-    width:340px;
-    margin:auto;
-    padding:30px;
-    border-radius:28px;
-    background:rgba(255,255,255,.18);
-    backdrop-filter:blur(18px);
-    box-shadow:0 12px 35px rgba(0,0,0,.18);
+
+margin:30px auto;
+
+width:340px;
+
+padding:28px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.22);
+
+backdrop-filter:blur(18px);
+
+box-shadow:0 10px 40px rgba(0,0,0,.18);
+
 }
 
-.card h2{
-    font-size:34px;
-    margin-bottom:18px;
+.avatar{
+
+width:180px;
+height:180px;
+
+margin:18px auto;
+
+display:block;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:5px solid rgba(255,255,255,.8);
+
+box-shadow:0 8px 30px rgba(0,0,0,.25);
+
+animation:float 3s ease-in-out infinite;
+
 }
 
-.card p{
-    line-height:1.8;
-    font-size:18px;
+h2{
+
+margin-top:10px;
+font-size:34px;
+
+}
+
+p{
+
+margin-top:18px;
+
+font-size:18px;
+
+line-height:1.7;
+
 }
 
 button{
-    margin-top:25px;
-    padding:14px 32px;
-    border:none;
-    border-radius:50px;
-    background:white;
-    color:#ff5b99;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+
+margin-top:25px;
+
+padding:14px 35px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff4f91;
+
+transition:.3s;
+
 }
 
 button:hover{
-    transform:scale(1.08);
+
+transform:scale(1.08);
+
 }
 
 #msg{
-    margin-top:20px;
-    font-size:20px;
-    min-height:55px;
+
+margin-top:18px;
+
+font-size:20px;
+
+min-height:55px;
+
 }
 
-.heart{
-    position:absolute;
-    pointer-events:none;
-    animation:fly linear forwards;
+.float{
+
+position:absolute;
+
+pointer-events:none;
+
+animation:fly linear forwards;
+
 }
 
 @keyframes fly{
 
 from{
-transform:translateY(0) scale(.6);
+
+transform:translateY(0) scale(.5);
+
 opacity:1;
+
 }
 
 to{
+
 transform:translateY(-120vh) rotate(360deg) scale(2);
+
 opacity:0;
+
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
 }
 
 }
@@ -117,8 +212,6 @@ opacity:0;
 
 <body>
 
-<div class="bg"></div>
-
 <div class="lock">
 
 <div class="time" id="time"></div>
@@ -127,15 +220,22 @@ opacity:0;
 
 <div class="card">
 
+<img src="ngocle.png" class="avatar">
+
 <h2>🌸 Ngọc Lê 🌸</h2>
 
 <p>
-Chúc Ngọc Lê luôn thật vui vẻ,<br>
-mỗi ngày đều ngập tràn tiếng cười ✨
+
+Chúc Ngọc Lê luôn vui vẻ 🌷
+
+Mỗi ngày đều có thật nhiều tiếng cười ✨
+
 </p>
 
-<button onclick="love()">
-🌷 Chạm thử nè
+<button onclick="showWish()">
+
+🌸 Chạm thử nè
+
 </button>
 
 <div id="msg"></div>
@@ -151,21 +251,33 @@ function updateClock(){
 const now=new Date();
 
 document.getElementById("time").innerHTML=
+
 String(now.getHours()).padStart(2,"0")+":"+
+
 String(now.getMinutes()).padStart(2,"0");
 
 const days=[
+
 "Chủ nhật",
+
 "Thứ Hai",
+
 "Thứ Ba",
+
 "Thứ Tư",
+
 "Thứ Năm",
+
 "Thứ Sáu",
+
 "Thứ Bảy"
+
 ];
 
 document.getElementById("date").innerHTML=
+
 days[now.getDay()]+" • "+
+
 now.getDate()+"/"+(now.getMonth()+1)+"/"+now.getFullYear();
 
 }
@@ -174,51 +286,49 @@ setInterval(updateClock,1000);
 
 updateClock();
 
-const texts=[
+const wishes=[
 
-"🌸 Ngọc Lê dễ thương lắm!",
+"🌸 Chúc Ngọc Lê luôn mỉm cười.",
 
-"💖 Chúc hôm nay thật nhiều niềm vui.",
+"🌷 Chúc hôm nay thật nhiều niềm vui.",
 
-"🌷 Luôn giữ nụ cười thật tươi nhé.",
+"✨ Mong mọi điều tốt đẹp sẽ đến.",
 
-"✨ Chúc mọi điều tốt đẹp sẽ đến.",
+"😊 Hãy luôn giữ nụ cười nhé.",
 
-"😊 Hôm nay chắc chắn sẽ là một ngày tuyệt vời.",
+"🩷 Chúc một ngày thật nhẹ nhàng.",
 
-"🌼 Chúc Ngọc Lê luôn hạnh phúc.",
-
-"🌸 Smileeee 😄"
+"🌼 Smileeeee 😄"
 
 ];
 
-function love(){
+function showWish(){
 
 document.getElementById("msg").innerHTML=
-texts[Math.floor(Math.random()*texts.length)];
 
-for(let i=0;i<70;i++){
+wishes[Math.floor(Math.random()*wishes.length)];
 
-let h=document.createElement("div");
+for(let i=0;i<80;i++){
 
-h.className="heart";
+let e=document.createElement("div");
 
-h.innerHTML=["🌸","💖","✨","🌷","🩷"][Math.floor(Math.random()*5)];
+e.className="float";
 
-h.style.left=Math.random()*100+"vw";
-h.style.top="100vh";
+e.innerHTML=["🌸","🩷","✨","💖","🌷"][Math.floor(Math.random()*5)];
 
-h.style.fontSize=
-(18+Math.random()*25)+"px";
+e.style.left=Math.random()*100+"vw";
 
-h.style.animationDuration=
-(3+Math.random()*3)+"s";
+e.style.top="100vh";
 
-document.body.appendChild(h);
+e.style.fontSize=(18+Math.random()*25)+"px";
+
+e.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(e);
 
 setTimeout(()=>{
 
-h.remove();
+e.remove();
 
 },6000);
 
@@ -226,65 +336,61 @@ h.remove();
 
 }
 
-document.body.addEventListener("click",(e)=>{
+setInterval(()=>{
 
-for(let i=0;i<18;i++){
+let e=document.createElement("div");
 
-let h=document.createElement("div");
+e.className="float";
 
-h.className="heart";
+e.innerHTML=["🌸","✨","🩷"][Math.floor(Math.random()*3)];
 
-h.innerHTML="🌸";
+e.style.left=Math.random()*100+"vw";
 
-h.style.left=
-(e.clientX+(Math.random()-0.5)*120)+"px";
+e.style.top="100vh";
 
-h.style.top=
-(e.clientY+(Math.random()-0.5)*120)+"px";
+e.style.fontSize=(16+Math.random()*18)+"px";
 
-h.style.fontSize=
-(18+Math.random()*20)+"px";
+e.style.animationDuration="7s";
 
-h.style.animationDuration=
-(2+Math.random()*2)+"s";
-
-document.body.appendChild(h);
+document.body.appendChild(e);
 
 setTimeout(()=>{
 
-h.remove();
+e.remove();
 
-},4000);
+},7000);
+
+},500);
+
+document.addEventListener("click",(ev)=>{
+
+for(let i=0;i<18;i++){
+
+let e=document.createElement("div");
+
+e.className="float";
+
+e.innerHTML="🌸";
+
+e.style.left=(ev.clientX+(Math.random()-0.5)*100)+"px";
+
+e.style.top=(ev.clientY+(Math.random()-0.5)*100)+"px";
+
+e.style.fontSize=(16+Math.random()*20)+"px";
+
+e.style.animationDuration="3s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.remove();
+
+},3000);
 
 }
 
 });
-
-setInterval(()=>{
-
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML=["🌸","✨","💖","🩷"][Math.floor(Math.random()*4)];
-
-h.style.left=Math.random()*100+"vw";
-h.style.top="100vh";
-
-h.style.fontSize=
-(16+Math.random()*20)+"px";
-
-h.style.animationDuration="6s";
-
-document.body.appendChild(h);
-
-setTimeout(()=>{
-
-h.remove();
-
-},6000);
-
-},450);
 
 </script>
 
