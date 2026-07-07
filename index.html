@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Love Ngọc Lê ❤️</title>
+<title>🌸 Ngọc Lê 🌸</title>
 
 <style>
 *{
@@ -16,7 +16,7 @@
 body{
     overflow:hidden;
     height:100vh;
-    background:linear-gradient(160deg,#ff6fa5,#ff8fc0,#ffd9ea);
+    background:linear-gradient(160deg,#ffd6e8,#ffc2dc,#ffeef6);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -26,51 +26,55 @@ body{
 .bg{
     position:fixed;
     inset:0;
-    background:radial-gradient(circle at top,#ffffff30,transparent 60%);
+    background:radial-gradient(circle at top,#ffffff40,transparent 65%);
 }
 
 .lock{
     text-align:center;
     z-index:10;
+    width:100%;
+    padding:20px;
 }
 
 .time{
-    font-size:78px;
+    font-size:72px;
     font-weight:300;
+    text-shadow:0 3px 10px rgba(0,0,0,.15);
 }
 
 .date{
     font-size:20px;
-    margin-top:5px;
+    margin-top:6px;
+    margin-bottom:30px;
 }
 
 .card{
-    margin-top:40px;
-    width:330px;
-    padding:28px;
+    width:340px;
+    margin:auto;
+    padding:30px;
     border-radius:28px;
     background:rgba(255,255,255,.18);
     backdrop-filter:blur(18px);
-    box-shadow:0 10px 40px rgba(0,0,0,.2);
+    box-shadow:0 12px 35px rgba(0,0,0,.18);
 }
 
 .card h2{
     font-size:34px;
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 .card p{
-    line-height:1.7;
+    line-height:1.8;
     font-size:18px;
 }
 
 button{
     margin-top:25px;
+    padding:14px 32px;
     border:none;
     border-radius:50px;
-    padding:14px 35px;
     background:white;
-    color:#ff4d88;
+    color:#ff5b99;
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
@@ -82,9 +86,9 @@ button:hover{
 }
 
 #msg{
-    margin-top:18px;
-    min-height:55px;
+    margin-top:20px;
     font-size:20px;
+    min-height:55px;
 }
 
 .heart{
@@ -94,16 +98,21 @@ button:hover{
 }
 
 @keyframes fly{
-    from{
-        transform:translateY(0) scale(.5);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-120vh) rotate(360deg) scale(2);
-        opacity:0;
-    }
+
+from{
+transform:translateY(0) scale(.6);
+opacity:1;
 }
+
+to{
+transform:translateY(-120vh) rotate(360deg) scale(2);
+opacity:0;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
@@ -113,18 +122,21 @@ button:hover{
 <div class="lock">
 
 <div class="time" id="time"></div>
+
 <div class="date" id="date"></div>
 
 <div class="card">
 
-<h2>❤️ Ngọc Lê ❤️</h2>
+<h2>🌸 Ngọc Lê 🌸</h2>
 
 <p>
-Nếu gặp em là một điều may mắn,<br>
-thì yêu em là điều anh muốn làm mỗi ngày. 💖
+Chúc Ngọc Lê luôn thật vui vẻ,<br>
+mỗi ngày đều ngập tràn tiếng cười ✨
 </p>
 
-<button onclick="love()">Bấm vào đây</button>
+<button onclick="love()">
+🌷 Chạm thử nè
+</button>
 
 <div id="msg"></div>
 
@@ -139,10 +151,18 @@ function updateClock(){
 const now=new Date();
 
 document.getElementById("time").innerHTML=
-String(now.getHours()).padStart(2,'0')+":"+
-String(now.getMinutes()).padStart(2,'0');
+String(now.getHours()).padStart(2,"0")+":"+
+String(now.getMinutes()).padStart(2,"0");
 
-const days=["Chủ nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"];
+const days=[
+"Chủ nhật",
+"Thứ Hai",
+"Thứ Ba",
+"Thứ Tư",
+"Thứ Năm",
+"Thứ Sáu",
+"Thứ Bảy"
+];
 
 document.getElementById("date").innerHTML=
 days[now.getDay()]+" • "+
@@ -151,15 +171,25 @@ now.getDate()+"/"+(now.getMonth()+1)+"/"+now.getFullYear();
 }
 
 setInterval(updateClock,1000);
+
 updateClock();
 
 const texts=[
-"Ngọc Lê ❤️ Anh yêu em.",
-"Mỗi ngày đều muốn ở bên em. 💕",
-"Em là điều tuyệt vời nhất. 🌹",
-"Anh sẽ luôn nắm tay em. 🥰",
-"Cảm ơn em đã xuất hiện trong cuộc đời anh. 💖",
-"Yêu Ngọc Lê hôm nay và mãi mãi. ❤️"
+
+"🌸 Ngọc Lê dễ thương lắm!",
+
+"💖 Chúc hôm nay thật nhiều niềm vui.",
+
+"🌷 Luôn giữ nụ cười thật tươi nhé.",
+
+"✨ Chúc mọi điều tốt đẹp sẽ đến.",
+
+"😊 Hôm nay chắc chắn sẽ là một ngày tuyệt vời.",
+
+"🌼 Chúc Ngọc Lê luôn hạnh phúc.",
+
+"🌸 Smileeee 😄"
+
 ];
 
 function love(){
@@ -167,22 +197,30 @@ function love(){
 document.getElementById("msg").innerHTML=
 texts[Math.floor(Math.random()*texts.length)];
 
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
 
 let h=document.createElement("div");
 
 h.className="heart";
 
-h.innerHTML=["❤️","💖","💕","💘","🌸"][Math.floor(Math.random()*5)];
+h.innerHTML=["🌸","💖","✨","🌷","🩷"][Math.floor(Math.random()*5)];
 
 h.style.left=Math.random()*100+"vw";
 h.style.top="100vh";
-h.style.fontSize=(18+Math.random()*30)+"px";
-h.style.animationDuration=(3+Math.random()*3)+"s";
+
+h.style.fontSize=
+(18+Math.random()*25)+"px";
+
+h.style.animationDuration=
+(3+Math.random()*3)+"s";
 
 document.body.appendChild(h);
 
-setTimeout(()=>h.remove(),6000);
+setTimeout(()=>{
+
+h.remove();
+
+},6000);
 
 }
 
@@ -190,22 +228,33 @@ setTimeout(()=>h.remove(),6000);
 
 document.body.addEventListener("click",(e)=>{
 
-for(let i=0;i<20;i++){
+for(let i=0;i<18;i++){
 
 let h=document.createElement("div");
 
 h.className="heart";
 
-h.innerHTML="❤️";
+h.innerHTML="🌸";
 
-h.style.left=(e.clientX+(Math.random()-0.5)*120)+"px";
-h.style.top=(e.clientY+(Math.random()-0.5)*120)+"px";
-h.style.fontSize=(18+Math.random()*20)+"px";
-h.style.animationDuration=(2+Math.random()*2)+"s";
+h.style.left=
+(e.clientX+(Math.random()-0.5)*120)+"px";
+
+h.style.top=
+(e.clientY+(Math.random()-0.5)*120)+"px";
+
+h.style.fontSize=
+(18+Math.random()*20)+"px";
+
+h.style.animationDuration=
+(2+Math.random()*2)+"s";
 
 document.body.appendChild(h);
 
-setTimeout(()=>h.remove(),4000);
+setTimeout(()=>{
+
+h.remove();
+
+},4000);
 
 }
 
@@ -217,18 +266,25 @@ let h=document.createElement("div");
 
 h.className="heart";
 
-h.innerHTML="💖";
+h.innerHTML=["🌸","✨","💖","🩷"][Math.floor(Math.random()*4)];
 
 h.style.left=Math.random()*100+"vw";
 h.style.top="100vh";
-h.style.fontSize=(18+Math.random()*20)+"px";
+
+h.style.fontSize=
+(16+Math.random()*20)+"px";
+
 h.style.animationDuration="6s";
 
 document.body.appendChild(h);
 
-setTimeout(()=>h.remove(),6000);
+setTimeout(()=>{
 
-},350);
+h.remove();
+
+},6000);
+
+},450);
 
 </script>
 
